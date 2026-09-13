@@ -63,7 +63,7 @@ if query:
 
     with st.chat_message("assistant"):
         with st.spinner("Thinking..."):
-            result = st.session_state.graph.invoke(state)
+            result = st.session_state.graph.invoke(state) # pyright: ignore[reportArgumentType]
         response = result["final_response"]
         st.markdown(response)
         if result.get("tool_result"):
