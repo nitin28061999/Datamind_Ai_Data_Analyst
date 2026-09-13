@@ -32,42 +32,4 @@ with st.sidebar:
         st.dataframe(store.df.head(5), use_container_width=True)
 
     st.divider()
-    st.caption(
-        "Set GOOGLE_API_KEY in your .env to enable the LLM. "
-        "LANGBASE_API_KEY / LANGBASE_PIPE_URL are optional — the app runs on a "
-        "local fallback prompt if they're not set."
-    )
-
-st.header("2. Ask a question")
-
-for role, content in st.session_state.history:
-    with st.chat_message(role):
-        st.markdown(content)
-
-query = st.chat_input("e.g. What is the total revenue by region?")
-
-if query:
-    st.session_state.history.append(("user", query))
-    with st.chat_message("user"):
-        st.markdown(query)
-
-    state = {
-        "messages": [],
-        "user_query": query,
-        "intent": "",
-        "plan": None,
-        "tool_result": None,
-        "final_response": None,
-        "dataframe_loaded": store.df is not None,
-    }
-
-    with st.chat_message("assistant"):
-        with st.spinner("Thinking..."):
-            result = st.session_state.graph.invoke(state) # pyright: ignore[reportArgumentType]
-        response = result["final_response"]
-        st.markdown(response)
-        if result.get("tool_result"):
-            with st.expander("🔍 Behind the scenes (tool calls)"):
-                st.code(result["tool_result"])
-
-    st.session_state.history.append(("assistant", response))
+    st.caption("Upload a CSV to begin.")
