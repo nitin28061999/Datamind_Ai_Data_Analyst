@@ -1,47 +1,59 @@
-# DataMind AI — Advanced Multimode Data Analyst
+# DataMind AI — Vercel Frontend + Render Backend
 
-An AI-powered analytics workspace built with Streamlit, Gemini, Pandas, DuckDB and Plotly.
-
-## Modes
-
-- **Dashboard** — automatic executive KPIs and charts
-- **AI Analyst** — natural-language routing
-- **Python** — LLM-generated read-only Pandas analysis
-- **SQL** — LLM-generated read-only DuckDB SQL
-- **Data Explorer** — inspect the loaded dataset
-- **Profile** — schema, missing values and duplicates
+This is the production-style restructuring of the original DataMind AI Streamlit project.
 
 ## Architecture
 
-User → Intent Router → Python Agent / SQL Agent / Dashboard → Validator → Execution → Result → Business Insight
+Next.js frontend → Vercel → FastAPI backend → Render → LangGraph → Python / SQL / Dashboard agents → Gemini + DuckDB + Pandas.
 
-## Run on Windows
+## Backend
 
 ```powershell
+cd backend
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 copy .env.example .env
-# Put your Gemini API key in .env
-python -m streamlit run app.py
+uvicorn main:app --reload --port 8000
 ```
 
-## Important
+Render:
+- Root Directory: `backend`
+- Build: `pip install -r requirements.txt`
+- Start: `uvicorn main:app --host 0.0.0.0 --port $PORT`
+- Add `GOOGLE_API_KEY`
+- Add `FRONTEND_URL` after Vercel deployment
 
-Never commit `.env`. Generated Python is validated and executed with restricted builtins, but this is still a local analytical application, not a production sandbox. For untrusted users, move code execution into a real isolated container or replace code execution with a fixed analysis DSL.
+Test `/health`.
 
-## Suggested demo questions
+## Frontend
 
-Python:
-- What are the top 5 brands by revenue?
-- Calculate average margin by category.
-- Find products below reorder level.
-- Show the relationship between units and revenue.
+```powershell
+cd frontend
+npm install
+copy .env.example .env.local
+npm run dev
+```
 
-SQL:
-- Show monthly revenue.
-- Give the top 10 cities by revenue.
-- Calculate revenue and margin by category.
+Vercel:
+- Root Directory: `frontend`
+- Framework: Next.js
+- Environment: `NEXT_PUBLIC_API_URL=https://YOUR-RENDER-URL.onrender.com`
 
-Dashboard:
-- Load the sample dataset and open the Dashboard tab.
+## Features
+
+- Executive dashboard
+- AI Analyst
+- Natural-language Python/Pandas
+- SQL/DuckDB
+- Data Explorer
+- CSV/XLSX upload
+- LangGraph routing
+- Gemini synthesis
+- REST API
+
+## Security
+
+The Python endpoint uses AST validation and restricted builtins for a portfolio/demo environment. It is **not a true sandbox**. Before exposing arbitrary code execution to untrusted public users, move execution into an isolated container/worker with CPU, memory, timeout, filesystem and network restrictions.
+
+Never expose `GOOGLE_API_KEY` in `NEXT_PUBLIC_*` variables.
