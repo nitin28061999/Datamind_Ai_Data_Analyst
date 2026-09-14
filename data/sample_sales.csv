@@ -1,21 +1,13 @@
-order_id,date,region,product_category,product_name,units_sold,unit_price,revenue,customer_segment
-1001,2026-01-05,North,Electronics,Wireless Mouse,12,499,5988,Retail
-1002,2026-01-06,South,Electronics,Bluetooth Speaker,8,1499,11992,Retail
-1003,2026-01-07,East,Furniture,Office Chair,4,4999,19996,Corporate
-1004,2026-01-08,West,Electronics,Laptop Stand,20,899,17980,Retail
-1005,2026-01-09,North,Furniture,Standing Desk,3,12999,38997,Corporate
-1006,2026-01-10,South,Stationery,Notebook Pack,50,199,9950,Retail
-1007,2026-01-11,East,Electronics,Wireless Mouse,15,499,7485,Retail
-1008,2026-01-12,West,Furniture,Bookshelf,6,3499,20994,Corporate
-1009,2026-01-13,North,Stationery,Pen Set,30,249,7470,Retail
-1010,2026-01-14,South,Electronics,Bluetooth Speaker,10,1499,14990,Retail
-1011,2026-01-15,East,Furniture,Office Chair,7,4999,34993,Corporate
-1012,2026-01-16,West,Stationery,Notebook Pack,40,199,7960,Retail
-1013,2026-01-17,North,Electronics,Laptop Stand,18,899,16182,Retail
-1014,2026-01-18,South,Furniture,Standing Desk,2,12999,25998,Corporate
-1015,2026-01-19,East,Stationery,Pen Set,25,249,6225,Retail
-1016,2026-01-20,West,Electronics,Wireless Mouse,22,499,10978,Retail
-1017,2026-01-21,North,Furniture,Bookshelf,5,3499,17495,Corporate
-1018,2026-01-22,South,Stationery,Notebook Pack,35,199,6965,Retail
-1019,2026-01-23,East,Electronics,Bluetooth Speaker,9,1499,13491,Retail
-1020,2026-01-24,West,Furniture,Office Chair,6,4999,29994,Corporate
+Invoice_ID,Invoice_Date,City,Category,Brand,Units,Revenue,Cost,Margin,Stock_On_Hand,Reorder_Level
+INV001,2024-01-05,Mumbai,Beverages,Brand A,20,2000,1400,600,120,50
+INV002,2024-01-12,Delhi,Snacks,Brand B,15,1800,1200,600,80,40
+INV003,2024-02-03,Mumbai,Beverages,Brand C,30,3600,2500,1100,45,50
+INV004,2024-02-18,Pune,Personal Care,Brand A,12,2400,1600,800,90,40
+INV005,2024-03-02,Delhi,Beverages,Brand C,25,3000,2050,950,30,50
+INV006,2024-03-14,Bengaluru,Snacks,Brand B,40,4800,3200,1600,150,60
+INV007,2024-04-06,Pune,Beverages,Brand A,35,4200,2800,1400,70,50
+INV008,2024-04-20,Mumbai,Personal Care,Brand C,18,3600,2400,1200,55,40
+INV009,2024-05-11,Delhi,Snacks,Brand A,28,3360,2240,1120,25,50
+INV010,2024-05-26,Bengaluru,Beverages,Brand C,45,5400,3600,1800,110,60
+INV011,2024-06-09,Pune,Snacks,Brand B,22,2640,1760,880,95,40
+INV012,2024-06-21,Mumbai,Beverages,Brand A,50,6000,3900,2100,35,60
